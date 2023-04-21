@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.baloon {
+    background-color: rgb(255, 0, 0);
+    width : 200px;
+    height : 200px;
+    border-radius: 50%;
+}
+
+body {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+</head>
+<body>
+    <div class="baloon"  onclick="change_baloon()" onmouseout="lesser_baloon()"></div>
+    <script>
+    function change_baloon() {
+    var balloon = $(".baloon");
+    var size = balloon.height();
+    size = size + 10;
+    if (size > 420)
+        size = 200;
+    balloon.css("height", size + "px");
+    balloon.css("width", size + "px");
+
+    console.log(balloon.css("background-color"));
+
+    if (balloon.css("background-color") == "rgb(255, 0, 0)")
+        balloon.css("background-color", "rgb(0, 128, 0)");
+    else if (balloon.css("background-color") == "rgb(0, 128, 0)")
+        balloon.css("background-color", "rgb(0, 0, 255");
+    else if (balloon.css("background-color") == "rgb(0, 0, 255)")
+        balloon.css("background-color", "rgb(255, 0, 0)");
+}
+
+function lesser_baloon() {
+    var balloon = $(".baloon");
+    var size = balloon.height();
+    size = size - 5;
+    if (size < 200)
+        size = 200;
+    balloon.css("height", size + "px");
+    balloon.css("width", size + "px");
+}
+    </script>
+</body>
+</html>

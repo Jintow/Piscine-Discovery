@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+</head>
+<body>
+    <input type="text" class="number">
+    <select id="operator">
+        <option value="">-- Choose an operator --</option>
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+    </select>
+    <input type="text" class="number">
+    <input type="submit" onclick="calculator()" value="Try me!">
+    <script>
+        var time = 0;
+        $(document).mousemove(function(){
+    time = 0;
+});
+
+setInterval(function () {
+    time++;
+    if (time == 30) {
+        alert("Please, use me...");
+        time = 0;
+    }
+}, 1000);
+
+function calculator()
+{
+    var number = $(".number");
+    if (checking(number.eq(0).val()) == false || checking(number.eq(1).val()) == false)
+    {
+        alert("Error :(");
+        console.log("Error :(");
+        return ;
+    }
+    var x = parseInt(number.eq(0).val(), 10);
+    var y = parseInt(number.eq(1).val(), 10);
+    var operator = $("#operator");
+    if (y == 0 && (operator.val() == "/" || operator.val() == "%"))
+    {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return ;
+    }
+
+    var result = 0;
+    if (operator.val() == "+")
+        result = x + y;
+    else if (operator.val() == "-")
+        result = x - y;
+    else if (operator.val() == "*")
+        result = x * y;
+    else if (operator.val() == "/")
+        result = x / y;
+    else if (operator.val() == "%")
+        result = x % y;
+    var text = "The result is " + result;
+    console.log(text);
+    alert(text);
+
+}
+
+function checking(number)
+{
+    let i = 0;
+    while (number[i])
+    {
+        if (isNaN(number[i++]))
+            return (false);
+    }
+    return (true);
+}
+    </script>
+</body>
+</html>

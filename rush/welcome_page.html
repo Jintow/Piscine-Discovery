@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="welcome_page.css"></style>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="center">Choose your Character</h1>
+    <div class ="img">
+        <a href="cv/index.html" >
+            <img src="Sans titre.png" id="img1">
+        </a>
+        <a href="./Lonely/index.html" >
+            <img src="./Lonely/assets/img/portfolio/catherine1.jpg" id="img2">
+        </a>
+    </div>
+    <script>
+        const img2 = document.getElementById('img2');
+        const img1 = document.getElementById('img1');
+       
+        img2.addEventListener('mouseover', function() {
+            survol = true;
+        })
+        img2.addEventListener('mouseout', function() {
+            survol = false;
+        })
+    if (survol) {
+    img1.classList.add('opak');
+    img1.classList.remove('net');
+    } 
+    else {
+    img1.classList.remove('opak');
+    img1.classList.add('net');
+    }
+    console.log(img2);
+    </script>
+</body>
+</html>

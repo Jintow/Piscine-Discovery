@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.baloon {
+    background-color: rgb(255, 0, 0);
+    width : 200px;
+    height : 200px;
+    border-radius: 50%;
+}
+
+body {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+    </style>
+</head>
+<body>
+    <div class="baloon"  onclick="change_baloon()" onmouseout="lesser_baloon()"></div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        function change_baloon()
+{
+    var balloon = document.getElementsByClassName("baloon");
+    var size = balloon[0].getBoundingClientRect().height;
+    size = size + 10;
+    if (size > 420)
+        size = 200;
+    balloon[0].style.height = size + "px";
+    balloon[0].style.width = size + "px";
+    if (!balloon[0].style.getPropertyValue('background-color'))
+        document.getElementsByClassName("baloon")[0].style.backgroundColor = "red"
+
+    // console.log(balloon[0].style.getPropertyValue('background-color'));
+
+
+    if (balloon[0].style.getPropertyValue('background-color') == "red")
+        balloon[0].style.backgroundColor = "green";
+    if (balloon[0].style.getPropertyValue('background-color') == "green")
+        balloon[0].style.backgroundColor = "blue";
+    if (balloon[0].style.getPropertyValue('background-color') == "blue")
+        balloon[0].style.backgroundColor = "red";
+}
+    function lesser_baloon()
+{
+    var balloon = document.getElementsByClassName("baloon");
+    var size = balloon[0].getBoundingClientRect().height;
+    size = size -5;
+    if (size < 200)
+        size = 200;
+    balloon[0].style.height = size + "px";
+    balloon[0].style.width = size + "px";
+}
+    </script>
+</body>
+</html>
